@@ -83,7 +83,7 @@ function fsSettings(){
     $data.=fsSettingsInput('offsetBottom',$offsetBottom,
     '<b>Offset Bottom</b>','small-text');
     $data.=fsSettingsInput('minHDiff',$minHDiff,
-	'<b>Minimum Height Difference</b>; if (container height - sidebar height < minHDiff) then the plugin is not activated; if <i>dynamicTop</i> is checked, this option is not considered','small-text');
+	'<b>Minimum Height Difference</b>; if (container height - sidebar height < minHDiff) then the plugin is not activated;','small-text');
     $data.='<tr><td><p class="submit"><input type="submit" name="Submit" class="button-primary" value="Save Changes" /></p></td></tr>';
     $data.='</table>';
     $data.='</form>';
