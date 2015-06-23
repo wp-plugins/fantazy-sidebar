@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Fantazy Sidebar | Wordpress floating sidebar
-Plugin URI: https://github.com/Jakiboy/Fantazy-Sidebar
+Plugin URI: http://jakiboy.github.io/Fantazy-Sidebar/
 Description: Makes wordpress's sidebar floatable, compatible with version <a href="https://fr.wordpress.org/">4.2.2</a>
 Version: 1.5
 Author: JIHAD SINNAOUR
