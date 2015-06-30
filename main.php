@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Fantazy Sidebar | Wordpress floating sidebar
-Plugin URI: http://jakiboy.github.io/Fantazy-Sidebar/
+Plugin URI: https://github.com/Jakiboy/Fantazy-Sidebar
 Description: Makes wordpress's sidebar floatable, compatible with version <a href="https://fr.wordpress.org/">4.2.2</a>
 Version: 1.5
 Author: JIHAD SINNAOUR
@@ -83,7 +83,7 @@ function fsSettings(){
     $data.=fsSettingsInput('offsetBottom',$offsetBottom,
     '<b>Offset Bottom</b>','small-text');
     $data.=fsSettingsInput('minHDiff',$minHDiff,
-	'<b>Minimum Height Difference</b>; if (container height - sidebar height < minHDiff) then the plugin is not activated;','small-text');
+	'<b>Minimum Height Difference</b>; if (container height - sidebar height < minHDiff) then the plugin is not activated; if <i>dynamicTop</i> is checked, this option is not considered','small-text');
     $data.='<tr><td><p class="submit"><input type="submit" name="Submit" class="button-primary" value="Save Changes" /></p></td></tr>';
     $data.='</table>';
     $data.='</form>';
@@ -99,6 +99,8 @@ if ( !is_admin() ) {
     wp_enqueue_script('wp-fantazy-sidebar');
     }
     add_action( 'wp_enqueue_scripts', 'fantazySidebarRun' );
+    //add_action('wp_footer','fsStartApp');
     $option=fsGetOptions();
+    add_action( ($option['jsInHead']?'wp_head':'wp_footer') , 'fsStartApp');
 }
 else{add_action('admin_menu', 'fsMenuSettings');}
