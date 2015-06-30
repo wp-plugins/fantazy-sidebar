@@ -99,8 +99,7 @@ if ( !is_admin() ) {
     wp_enqueue_script('wp-fantazy-sidebar');
     }
     add_action( 'wp_enqueue_scripts', 'fantazySidebarRun' );
-    //add_action('wp_footer','fsStartApp');
     $option=fsGetOptions();
-    add_action( ($option['jsInHead']?'wp_head':'wp_footer') , 'fsStartApp');
+    add_action('wp_footer','fsStartApp');
 }
 else{add_action('admin_menu', 'fsMenuSettings');}
