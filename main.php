@@ -3,26 +3,28 @@
 Plugin Name: Fantazy Sidebar | Wordpress floating sidebar
 Plugin URI: http://jakiboy.github.io/Fantazy-Sidebar/
 Description: Makes wordpress's sidebar floatable, compatible with version <a href="https://fr.wordpress.org/">4.2.2</a>
-Version: 1.5
+Version: 1.5.1
 Author: JIHAD SINNAOUR
 Author URI: http://info.jihadsinnaour.com
 License: GPL2
 **/
 /**
-*@Company   : Viaprestige
+*@Company   : VIAPRESTIGE
 *@author    : JIHAD SINNAOUR
 *@package   : Wordpress sidebar
 */
 function fsGlobals(){
     return array(
-        'contentID'=>'#content',  // Base of page's height, for #sidebar
-        'sidebarID'=>'#sidebar', // Wordpress sidbare's ID
-        'waitingTime'=>2000,    // Time before moving sidebar
-        'debounce'=>500,       // Sidebar limits
-        'animate'=>500,       // Animation duration
-        'offsetTop'=>0,      // Margin top
-        'offsetBottom'=>0,  // Margin bottom
-        'minHDiff'=>0      // Min height difference
+        'contentID'=>'#content',  		// Content's ID Selector
+        'sidebarID'=>'#sidebar', 	   // Sidbare's ID Selector
+        'contentClass'=>'.content',   // Content's Class Selector
+        'sidebarClass'=>'.sidebar',  // Sidbare's Class Selector
+        'waitingTime'=>2000,      	// Time before moving sidebar
+        'debounce'=>500,       	   // Sidebar limits
+        'animate'=>500,       	  // Animation duration
+        'offsetTop'=>0,      	 // Margin top
+        'offsetBottom'=>0,  	// Margin bottom
+        'minHDiff'=>0      	   // Min height difference
     );
 }
 function fsGetOptions(){
@@ -71,6 +73,10 @@ function fsSettings(){
 	'<b>Content Selector</b>');
     $data.=fsSettingsInput('sidebarID',$sidebarID,
 	'<b>Sidebar Selector</b>');
+	$data.=fsSettingsInput('contentClass',$contentClass,
+	'<b>Content Class Selector</b>');
+	$data.=fsSettingsInput('sidebarClass',$sidebarClass,
+	'<b>Sidebar Class Selector</b>');
 	$data.=fsSettingsInput('waitingTime',$waitingTime,
 	'<b>Wait</b> Milliseconds Before Activation, after page has loaded','small-text');
     $data.=fsSettingsInput('debounce',$debounce,

@@ -1,4 +1,4 @@
-console.log('Fantazy Sidebar is loaded ok');
+console.log('Fantazy Sidebar is loaded');
 fs = {};
 if (typeof console === 'undefined') {
     console = {
@@ -12,6 +12,8 @@ if (typeof console === 'undefined') {
             opts = jQuery.extend({}, {
                 contentID: '#content',
                 sidebarID: '#sidebar',
+                contentClass:'.content',
+                sidebarClass:'.sidebar',
                 waitingTime: 3000,
                 debounce: 500,
                 animate: 3000,
@@ -19,13 +21,17 @@ if (typeof console === 'undefined') {
                 offsetBottom: 0,
                 minHDiff: 0
             }, opts);
-
+            (function ($) {
+               $(document);
+                    $(jQuery(opts.contentClass)).attr("id", "content");
+                    $(jQuery(opts.sidebarClass)).attr("id", "sidebar");
+            }(jQuery));
             setTimeout(function() {
 
-                var $w = jQuery(window),
-                    $c = jQuery(opts.contentID),
+                var $w  = jQuery(window),
+                    $c  = jQuery(opts.contentID),
                     $ss = jQuery(opts.sidebarID),
-                    $b = jQuery('body');
+                    $b  = jQuery('body');
 
                 console.dir(opts);
 
@@ -38,7 +44,6 @@ if (typeof console === 'undefined') {
                                 var initialSPos = $s.position(),
                                     initialSOff = $s.offset();
 
-                                //Recupero Top e Left iniziali di tutte le sidebarID prima di iniziare il posizionamento
                                 setTimeout(function() {
                                     $s.css({
                                         position: 'absolute',
@@ -56,10 +61,10 @@ if (typeof console === 'undefined') {
 
                                             if ((scrollingDown && scrollY > sidebarIDTop + offsetTop && scrollY + $w.height() > $s.position().top + $s.height() + offsetTop - sidebarIDTop) || (!scrollingDown && scrollY < $s.position().top + offsetTop)) {
                                                 if (e.type === 'scroll' && ($w.height() > $s.height() || !scrollingDown)) {
-                                                    //Scorrimento verso l'alto
+
                                                     t = Math.max(sidebarIDTop, scrollY - (offsetTop) + (~~opts.offsetTop));
                                                 } else {
-                                                    //Scorrimento verso il basso o resize
+
                                                     t = Math.max(sidebarIDTop, scrollY + $w.height() - $s.outerHeight() - offsetTop - (~~opts.offsetBottom));
                                                 }
 

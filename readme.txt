@@ -39,6 +39,9 @@ Waiting for your questions
 
 == Changelog ==
 
+= 1.5.1 =
+Added class selector for Content and Sidebar
+
 = 1.5 =
 first clean release version
 
