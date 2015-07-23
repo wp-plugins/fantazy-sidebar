@@ -19,7 +19,9 @@ with less code, and new wordpress functions, for a better website's security.
 Fantazy Sidebar, keeps the same optionalities as the old verion, but i have deleted some debuging non useful functions
 to make the plugin more simple, and i also deleted all ads inside the plugin backend
 
-now if your sidebare is too short comparing to your content, Fantazy Sidebar w'll make you sidebar floatable
+now if your sidebare is too short comparing to your content, Fantazy Sidebar w'll make you sidebar floatable !
+
+Plugin powered by <a href="http://viaprestige-agency.com/" target="_blanc">Viaprestige Web Agency</a>
 
 == Installation ==
 
